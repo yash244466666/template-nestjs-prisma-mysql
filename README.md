@@ -46,6 +46,15 @@ Modern NestJS REST API starter preconfigured with MySQL via Prisma, validation, 
 - `npm run format` / `npm run format:check` – format or verify formatting
 - `npm test` / `npm run test:e2e` – run unit or e2e tests
 
+## Continuous Integration
+Pull requests and pushes to `dev` (default) and `main` trigger `.github/workflows/ci.yml`, which runs:
+- `npm ci`
+- `npm run lint:check`
+- `npm test`
+- `npm run build`
+
+Keep these commands passing locally before opening a PR to avoid CI failures.
+
 ## Docker Support
 A multi-stage `Dockerfile` and `docker-compose.yml` are provided. To run the full stack:
 ```bash

@@ -34,6 +34,11 @@ A NestJS REST API backed by Prisma and MySQL. The codebase follows best practice
 - `npm run test:e2e` – e2e tests (requires running MySQL)
 - `npm run prisma:*` – ORM tooling (`generate`, `migrate`, `deploy`, `studio`)
 
+## Continuous Integration
+- GitHub Actions workflow at `.github/workflows/ci.yml` runs on pushes and pull requests targeting `dev` (default) and `main`.
+- Steps: checkout, setup Node.js 20 with npm cache, `npm ci` (triggers Prisma generate), `npm run lint:check`, `npm test`, and `npm run build`.
+- Keep these commands green; extend the workflow if new quality gates are required.
+
 ## Logging & Error Handling
 - Services and controllers use Nest’s `Logger` to trace operations.
 - `PrismaClientExceptionFilter` translates known Prisma errors into HTTP responses and logs details.
